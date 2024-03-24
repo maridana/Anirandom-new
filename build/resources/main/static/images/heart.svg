@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="31px" viewBox="0 0 34 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_favorite_border_black_48px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Random" sketch:type="MSArtboardGroup" transform="translate(-947.000000, -503.000000)">
+            <g id="ic_favorite_border_black_48px" sketch:type="MSLayerGroup" transform="translate(943.750000, 498.000000)">
+                <path d="M0,0 L40,0 L40,40 L0,40 L0,0 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                <path d="M27.5,5 C24.6,5 21.8166667,6.35 20,8.48333333 C18.1833333,6.35 15.4,5 12.5,5 C7.36666667,5 3.33333333,9.03333333 3.33333333,14.1666667 C3.33333333,20.4666667 9,25.6 17.5833333,33.4 L20,35.5833333 L22.4166667,33.3833333 C31,25.6 36.6666667,20.4666667 36.6666667,14.1666667 C36.6666667,9.03333333 32.6333333,5 27.5,5 L27.5,5 Z M20.1666667,30.9166667 L20,31.0833333 L19.8333333,30.9166667 C11.9,23.7333333 6.66666667,18.9833333 6.66666667,14.1666667 C6.66666667,10.8333333 9.16666667,8.33333333 12.5,8.33333333 C15.0666667,8.33333333 17.5666667,9.98333333 18.45,12.2666667 L21.5666667,12.2666667 C22.4333333,9.98333333 24.9333333,8.33333333 27.5,8.33333333 C30.8333333,8.33333333 33.3333333,10.8333333 33.3333333,14.1666667 C33.3333333,18.9833333 28.1,23.7333333 20.1666667,30.9166667 L20.1666667,30.9166667 Z" id="Shape" fill="#64D08F" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

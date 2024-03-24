@@ -1,0 +1,242 @@
+@font-face { font-family: "Lato-Light"; src: url('../lato/fonts/Lato-Light.woff'); }
+@font-face { font-family: "Lato-Regular"; src: url('../lato/fonts/Lato-Regular.woff'); }
+@font-face { font-family: "Lato-Medium"; src: url('../lato/fonts/Lato-Medium.woff'); }
+@font-face { font-family: "Lato-Black"; src: url('../lato/fonts/Lato-Black.woff'); }
+
+* { outline: none !important; }
+
+body { margin: 0; }
+
+.anirandom-title {
+  font-family: "Lato-Black";
+  line-height: 3.2rem;
+  margin-top: 20px;
+  margin-left: 15px;
+  font-size: 3.2rem;
+  margin-bottom: 75px;
+}
+
+.anirandom-logo {
+    background-image: url(/images/logo.svg);
+    background-size: cover;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-aspect-ratio: 1/1) {
+
+    .anirandom-title {
+      margin-bottom: 20px;
+      visibility: hidden;
+    }
+
+    .anirandom-logo {
+        position: absolute;
+        visibility: visible;
+        width: 3rem;
+        height: 3rem;
+        top: 10px;
+        left: 10px;
+    }
+
+}
+
+a { text-decoration: none; }
+
+.anirandom-title a {
+  text-decoration: none;
+  color: #64D08F;
+}
+
+main {
+  position: relative;
+  width: 50rem;
+  margin: auto;
+}
+
+@media screen and (max-aspect-ratio: 12/9) { main {width: 95%;} }
+
+.auth {
+  position: absolute;
+  top: 15px;
+  right: 19px;
+  text-align: right;
+}
+
+.auth .auth-text {
+  font-family: "Lato-Regular";
+  color: #6D6D6D;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  z-index: 100501;
+  position: absolute;
+  float: right;
+  right: 0;
+  white-space: nowrap;
+}
+
+.auth .auth-text a {
+  text-decoration: none;
+  font-family: "Lato-Regular";
+  color: #6D6D6D;
+  z-index: 162;
+  cursor: pointer;
+}
+
+.auth .auth-text a:not(:first-child) { margin-left: 2vmin; }
+
+.auth .auth-text a:hover { color: #020202; }
+
+.auth .auth-bubble {
+  position: relative;
+  top: 30px;
+  left: 0;
+  height: 0;
+  z-index: 160;
+  opacity: 0.0;
+  transition: 0.3s ease;
+  border-radius: 2px;
+  box-shadow: 0 1px 7px 0 rgba(0,0,0,0.10), 0 2px 3px 0 rgba(52,52,52,0.06), 0 3px 8px 0 rgba(52,52,52,0.03);
+}
+
+.auth .auth-bubble.initial-width-297px { width: 18rem; }
+
+.auth .auth-bubble.initial-width-180px {
+  z-index: 150;
+  width: 7rem;
+}
+
+.auth[section] .auth-bubble {
+  opacity: 1.0;
+  background: #FCFCFC;
+}
+
+.auth[section=login] .auth-bubble {
+  height: 15.2rem;
+  z-index: 100501;
+}
+
+.auth[section=signup] .auth-bubble { height: 21.5rem; }
+.auth[section=logout] .auth-bubble {height: 2.8rem;}
+
+.auth .auth-bubble .section {
+  transition: 0.5s ease;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.0;
+  z-index: -100;
+}
+
+.auth[section=login] .auth-bubble .section.login,
+.auth[section=signup] .auth-bubble .section.signup {
+  opacity: 1.0;
+  z-index: 0;
+}
+
+.auth .auth-bubble .section .title {
+  margin-top: 1.2rem;
+  font-family: "Lato-Medium";
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #6D6D6D;
+  text-align: center;
+}
+
+.auth .auth-bubble .section form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.1rem;
+}
+
+.auth .auth-bubble .section form input[type="text"],
+.auth .auth-bubble .section form input[type="email"],
+.auth .auth-bubble .section form input[type="password"] {
+  width: 14rem;
+  height: 2.25rem;
+  border-radius: 0.2vmin;
+  margin-bottom: 0.8rem;
+  padding-left: 3%;
+  background-color: #fffdfe;
+  font-family: "Lato-Light";
+  font-size: 1.1rem;
+  font-weight: 100;
+  color: #cecece;
+  border: 0.1vmin solid #E7E7E7;
+}
+
+.auth .auth-bubble .section form input[type="submit"] {
+  padding: 0.4rem 2.1rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #809BBD;
+  font-size: 1.05rem;
+  font-family: "Lato-Light";
+  color: white;
+  cursor: pointer;
+}
+
+.auth .auth-bubble .section .goto-button {
+  position: absolute;
+  right: 9%;
+  bottom: 0.9rem;
+  font-family: "Lato-Medium";
+  color: #6D6D6D;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.auth .auth-bubble .section .goto-button:hover { opacity: 1.0; }
+
+.auth .auth-bubble .logout-text {
+  text-align: left;
+  position: absolute;
+  font-family: "Lato-Regular";
+  font-size: 1.05rem;
+  color: #6D6D6D;
+  line-height: 1.2rem;
+  text-decoration: none;
+  width: 5rem;
+  left: 0.8rem;
+  top: 0.8rem;
+}
+
+.auth .auth-bubble .logout-text:hover { color: #292929; }
+
+.plus {
+    background-image: url("../images/plus.svg");
+    width: 1.9rem;
+    height: 1.9rem;
+    top: 0.1rem;
+    right: 0.8rem;
+    position: absolute;
+    background-size: cover;
+    opacity: 0.7;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-aspect-ratio: 1/1) {
+
+    .logo {
+        visibility: hidden;
+    }
+
+    .plus {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+
+    .auth .auth-text { font-size: 1rem; right: -5px; }
+
+}
+
+main .synopsis::-webkit-scrollbar { width: 5px; }
+
+main .synopsis::-webkit-scrollbar-thumb {
+    background-color: #BABABA;
+    border-top: 4px solid white;
+    border-bottom: 5px solid white;
+}

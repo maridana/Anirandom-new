@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block css %}
+  {{ parent() }}
+  <link rel="stylesheet" href="/css/completed.css">
+{% endblock %}
+
+{% block main %}
+  {% if authorized or other %}
+    {% if completed_list is not empty %}
+      <div class="completed">
+        <h1>Completed</h1>
+        <ul>
+          <li class="menuElement" data-tab="reviewed">Reviewed</li>
+          <li class="active menuElement" data-tab="unreviewed">Unreviewed</li>
+        </ul>
+      </div>
+      <a href="/search">
+        <div class="plus"></div>
+      </a>
+      <div id="container">
+        <div id="reviewed">
+          {% if has_reviewed_animes %}
+            {% for review in completed_list %}
+              {% if review.review is not empty %}
+                <section class="reviewed">
+                  {% if not other %}
+                    <div class="drop-down-more">
+                      <div class="more"></div>
+                      <div class="bubble">
+                        <div class="options edit">Edit review</div>
+                        <div class="options remove" data-anime-id="{{ review.anime._id }}">Remove from list</div>
+                      </div>
+                    </div>
+                  {% endif %}
+                  <div class="info-view">
+                    <div class="anime-cover" style="background-image: url({{ review.anime.image }})"></div>
+                    <div class="anime-title"><a target="_blank" href="{{ review.anime.myAnimeListLink }}">{{ review.anime.title }}</a></div>
+                    <div class="anime-synopsis">{{ review.review }}</div>
+                    <div class="anime-rating">
+                      <div class="stars">
+                        <div class="stars-fill" style="width: {{ review.rating * 10 }}%"></div>
+                      </div>
+                      <div class="rating-number">{{ review.rating }}</div>
+                    </div>
+                  </div>
+                  <form class="hidden-edit">
+                    <textarea name="review">{{ review.review }}</textarea>
+                    <div class="review-char-count"></div>
+                    <div class="edit-stars" data-checked="{{ review.rating }}">
+                      <div class="edit-stars-background">
+                        <div class="edit-stars-background-fill"></div>
+                      </div>
+                      <div class="edit-stars-labels">
+                        <label><input type="radio" name="rating" value="1"></label>
+                        <label><input type="radio" name="rating" value="2"></label>
+                        <label><input type="radio" name="rating" value="3"></label>
+                        <label><input type="radio" name="rating" value="4"></label>
+                        <label><input type="radio" name="rating" value="5"></label>
+                        <label><input type="radio" name="rating" value="6"></label>
+                        <label><input type="radio" name="rating" value="7"></label>
+                        <label><input type="radio" name="rating" value="8"></label>
+                        <label><input type="radio" name="rating" value="9"></label>
+                        <label><input type="radio" name="rating" value="10"></label>
+                      </div>
+                    </div>
+                    <input type="hidden" name="anime" value="{{ review.anime._id }}">
+                    <input type="submit" value="Save">
+                  </form>
+                </section>
+              {% endif %}
+            {% endfor %}
+            <div class="logo"></div>
+          {% else %}
+          <div class="no-image"></div>
+          <div class="no-text">You don't have any reviews! You can change that by adding a comment in the Unreviewed section. Your friends should know your opinion!</div>
+          <a href="/search" class="go_to_search">SEARCH</a>
+          {% endif %}
+        </div>
+        <div id="unreviewed">
+          {% if has_unreviewed_animes %}
+            {% for review in completed_list %}
+              {% if review.review is empty %}
+                <section class="unreviewed">
+                  {% if not other %}
+                    <div class="drop-down-more">
+                      <div class="more"></div>
+                      <div class="bubble">
+                        <div class="options edit">Edit review</div>
+                        <div class="options remove" data-anime-id="{{ review.anime._id }}">Remove from list</div>
+                      </div>
+                    </div>
+                  {% endif %}
+                  <div class="info-view">
+                    <div class="anime-cover" style="background-image: url({{ review.anime.image }})"></div>
+                    <div class="anime-title"><a target="_blank" href="{{ review.anime.myAnimeListLink }}">{{ review.anime.title }}</a></div>
+                    <div class="anime-rating">
+                      <div class="stars">
+                        <div class="stars-fill" style="width: {{ review.rating * 10 }}%"></div>
+                      </div>
+                      <div class="rating-number">{{ review.rating }}</div>
+                    </div>
+                  </div>
+                  <form class="hidden-edit">
+                    <textarea name="review"></textarea>
+                    <div class="review-char-count"></div>
+                    <div class="edit-stars">
+                      <div class="edit-stars-background">
+                        <div class="edit-stars-background-fill"></div>
+                      </div>
+                      <div class="edit-stars-labels">
+                        <label><input type="radio" name="rating" value="1"></label>
+                        <label><input type="radio" name="rating" value="2"></label>
+                        <label><input type="radio" name="rating" value="3"></label>
+                        <label><input type="radio" name="rating" value="4"></label>
+                        <label><input type="radio" name="rating" value="5"></label>
+                        <label><input type="radio" name="rating" value="6"></label>
+                        <label><input type="radio" name="rating" value="7"></label>
+                        <label><input type="radio" name="rating" value="8"></label>
+                        <label><input type="radio" name="rating" value="9"></label>
+                        <label><input type="radio" name="rating" value="10"></label>
+                      </div>
+                    </div>
+                    <input type="hidden" name="anime" value="{{ review.anime._id }}">
+                    <input type="submit" value="Save">
+                  </form>
+                </section>
+              {% endif %}
+            {% endfor %}
+              <div class="logo"></div>
+          {% else %}
+            {% if other %}
+              <div class="no-image"></div>
+              <div class="no-text">oh...</div>
+              <a href="/search" class="go_to_search">SEARCH</a>
+            {% else %}
+              <div class="no-image"></div>
+              <div class="no-text">Your unreviewed list is empty! Either you were a good boy and left a comment about every single title, or you just haven't added anything yet. If you want to add something here, use the search function.</div>
+              <a href="/search" class="go_to_search">SEARCH</a>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      {% if other %}
+        <div class="completed">Completed</div>
+        <div class="no-image"></div>
+        <div class="no-text">user's completed list is empty</div>
+      {% else %}
+        <div class="completed">Completed</div>
+        <div class="no-image"></div>
+        <div class="no-text">You haven't added anything to the "Plan to watch" list. You're not a true weeb! A true weeb should watch at least one title a day. Just use the search.</div>
+        <a href="/search" class="go_to_search">SEARCH</a>
+      {% endif %}
+    {% endif %}
+  {% else %}
+      <div class="no-auth-text"></div>
+      <div class="no-auth-image"></div>
+  {% endif %}
+{% endblock %}
+
+{% block js %}
+  {{ parent() }}
+  <script src="/js/completed.js"></script>
+{% endblock %}

@@ -1,0 +1,306 @@
+.search {
+    z-index: 100500;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 1px;
+}
+
+.search-icon {
+    background-image: url("../images/search.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.search ul { display: none; }
+
+.search ul li .image {
+    float: left;
+    height: 100%;
+    background-color: #6D6D6D;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.search ul li .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.search ul li .title a {
+    color: #6D6D6D;
+    transition: 0.2s ease;
+}
+
+.search ul li .title a:hover {
+    color: #020202;
+}
+
+.search ul li .rating {
+    font-family: "Lato-Regular";
+    color: #2D2D2D;
+    position: absolute;
+}
+
+.search ul::-webkit-scrollbar { width: 8px; }
+
+.search ul::-webkit-scrollbar-thumb {
+    background-color: #BABABA;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    border-right: 3px solid white;
+}
+
+.search ul li {
+    position: relative;
+    display: block;
+}
+
+.search .stars {
+    position: absolute;
+    background-repeat: repeat-x;
+    background-image: url("../images/star.svg");
+}
+
+.search .stars-fill {
+    background-repeat: repeat-x;
+    background-image: url("../images/star-filled.svg");
+    height: 100%;
+}
+
+.search ul {
+    position: relative;
+    border-top: 1px solid #DEDEDE;
+    top: 1px;
+    overflow: auto;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+.search input[type="text"] {
+    font-family: "Lato-Light";
+    border: none;
+    background: none;
+}
+
+::-webkit-input-placeholder { color: gray; }
+::-moz-placeholder          { color: gray; }
+:-moz-placeholder           { color: gray; }
+:-ms-input-placeholder      { color: gray; }
+
+.title-container {
+    color: #2D2D2D;
+    display: inline-block;
+    width: 100%;
+    font-family: "Lato-Regular";
+    cursor: pointer;
+    position: absolute;
+}
+
+ul li .drop-down-search .more {
+    top: 0;
+    background: url("../images/more.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    opacity: 0.3;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+ul li:hover .drop-down-search .more { opacity: 0.7; }
+
+ul li .drop-down-search .bubble-search { height: 0; overflow: hidden; }
+
+ul li .drop-down-search.show .bubble-search {
+    position: absolute;
+    margin-top: 10px;
+    right: 0%;
+    height: 3.5rem;
+    width: 9rem;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.10), 0 1px 4px 0 rgba(52,52,52,0.12);
+}
+
+ul li .drop-down-search.show .bubble-search .search-add-to {
+    font-family: "Lato-Regular";
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: #6D6D6D;
+    cursor: pointer;
+}
+
+ul li .drop-down-search.show .bubble-search .search-add-to:hover { color: #020202; }
+
+ul li .drop-down-search.show .bubble-search .search-add-to.add-to-plan-to-watch { margin-top: 0.48rem; }
+
+ul li .drop-down-search.show .bubble-search .search-add-to.add-to-completed { margin-top: 0.2rem; }
+
+.no-image {
+    position: relative;
+    margin: auto;
+    background-size: cover;
+    background-image: url("/images/logo.svg");
+}
+
+.no-text {
+    text-align: center;
+    font-family: "Lato-Light";
+    color: #777777;
+    position: relative;
+    margin: auto;
+}
+
+@media only screen and (min-width: 480px), only screen and (min-device-width: 480px) {
+
+    .search-icon {
+        margin-left: 0.8rem;
+        top: 0.6rem;
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .search ul li .image { width: 53px; }
+
+    .search ul li .title {
+        max-width: 82%;
+        margin-left: 68px;
+    }
+
+    .search ul li .rating {
+        top: 38px;
+        left: 397px;
+        font-size: 1.3rem;
+    }
+
+    .search ul li .year { width: 59px; float: left; margin-left: 4px; }
+
+    .search ul li {
+        height: 4.6rem;
+        width: 95%;
+    }
+
+    .search .stars {
+        left: 65px;
+        top: 2rem;
+        width: 327px;
+        height: 33px;
+    }
+
+    .search ul { max-height: 325px; }
+
+    .search input[type="text"] {
+        width: 93%;
+        margin-left: 3rem;
+        height: 2.9rem;
+        font-size: 1.1rem;
+        padding-left: 8px;
+    }
+
+    .title-container {
+        font-size: 1.25rem;
+        top: 10%;
+    }
+
+    ul li .drop-down-search .more {
+        right: -2rem;
+        margin-top: 0.5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .no-image {
+        top: 77px;
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .no-text {
+        width: 97%;
+        font-size: 1.45rem;
+        line-height: 1.8rem;
+        top: 98px;
+    }
+
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-aspect-ratio: 1/1) {
+
+    main { width: 100%; }
+
+    .search-icon {
+        margin-left: 0.8rem;
+        top: 0.6rem;
+        width: 1.9rem;
+        height: 1.9rem;
+    }
+
+    .search ul li .image { width: 53px; }
+
+    .search ul li .title {
+        max-width: 53%;
+        margin-left: 68px;
+    }
+
+    .search ul li .rating {
+        top: 40px;
+        left: 116px;
+        font-size: 1.5rem;
+    }
+
+    .search ul li .year { width: 59px; float: left; margin-left: 4px; }
+
+    .search ul li {
+        height: 4.6rem;
+        width: 90%;
+    }
+
+    .search .stars {
+        left: 65px;
+        top: 1.7rem;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .search ul { max-height: 28.75rem; }
+
+    .search input[type="text"] {
+        width: 93%;
+        margin-left: 3rem;
+        height: 2.9rem;
+        font-size: 1.1rem;
+        padding-left: 8px;
+    }
+
+    .title-container {
+        font-size: 1.1rem;
+        top: 10%;
+    }
+
+    ul li .drop-down-search .more {
+        right: -2.2rem;
+        margin-top: 0.5rem;
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    .no-image { visibility: hidden; }
+
+    .no-text { visibility: hidden; }
+
+    .stars-fill { width: 100% !important; }
+
+}
+
+@media screen and (max-aspect-ratio: 12/9) { main {width: 100%;} section { width: 100% !important; } }

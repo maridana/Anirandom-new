@@ -1,0 +1,31 @@
+h1 {
+    margin-left: 10px;
+    font-family: "Lato-Medium";
+    font-size: 3.4rem;
+    color: #64d08f;
+}
+
+p {
+    color: #6d6d6d;
+    font-family: "Lato-Light";
+    margin-top: -27px;
+    font-size: 1.7rem;
+    margin-left: 10px;
+}
+
+.image {
+    width: 8.5rem;
+    height: 8.5rem;
+    margin-top: 12rem;
+    margin-left: 80%;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-aspect-ratio: 1/1) {
+
+    h1 { margin-left: 1rem; }
+
+    p { margin-left: 1rem; }
+
+    .image { display: none; }
+
+}
